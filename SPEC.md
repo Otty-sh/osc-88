@@ -120,7 +120,7 @@ In the reference implementation (Otty), the verification gate is a 1 Hz process 
 
 ## 7. OSC command number 88
 
-The number **88** was verified to be unassigned as an OSC *command*. The only established use of "88" in terminal ecosystems is `xterm-88color` / `TERM=*-88color`, which is a **terminfo color-palette** concept (an 88-entry color cube) — it is **not** an OSC command and does not occupy OSC command space. (Note also that some `terminfo` databases historically defined an unrelated, rarely-implemented OSC 88/89 for X11 highlight foreground/background; this proposal supersedes that dormant usage for the purpose of TRP and the number should be coordinated rather than assumed final.)
+The number **88** was verified to be unassigned as an OSC *command*. The only established use of "88" in terminal ecosystems is `xterm-88color` / `TERM=*-88color`, which is a **terminfo color-palette** concept (an 88-entry color cube, selected via [OSC 4](https://doc.otty.sh/vt/osc/osc-4)) — it is **not** an OSC command and does not occupy OSC command space. xterm's own dynamic/highlight color commands are OSC 10–19 (highlight is OSC 17 / OSC 19), not 88. No terminal emulator surveyed implements an OSC *command* 88.
 
 The OSC command number for TRP **SHOULD** be coordinated through the community registry at [terminfo.dev/osc](https://terminfo.dev/osc) rather than being treated as unilaterally claimed. Until coordination concludes, `88` is the proposed number; implementations are encouraged to track this repository for changes.
 
