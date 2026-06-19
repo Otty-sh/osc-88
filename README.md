@@ -8,6 +8,8 @@ TRP is **not** Otty-specific. This repository is its open, canonical home so any
 
 ## Why
 
+When user start a work with command `claude`, you cannot continue or recover the work by re-run the command `claude`, you need to run `cluade --resume XXXX`, not terminal does not have such info, so it is hard for terminal to resume user's work on re-start. That is the issue this OSC wants to solve, in detail:
+
 When a terminal restarts, every long-lived program inside it dies. A terminal *can* restore the visual scrollback from a log, but it cannot bring the **program** back, because it has no idea how that program was launched or how to re-enter its prior state.
 
 Today each terminal solves this with bespoke, terminal-specific machinery: iTerm2 keeps jobs alive in long-running *process servers*; tmux / Zellij run a persistent *server* you re-attach to. None of it is portable, and none of it works for an arbitrary program (`nvim -S session.vim`, an SSH session, a coding agent with a `--resume` flag) that isn't a multiplexer.
